@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello from App Engine! Server started');
+app.get('/', (_req, res) => {
+  res.sendFile(__dirname+'/Authentication.html');
 });
 
 // Listen to the App Engine-specified port, or 8080 otherwise
