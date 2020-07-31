@@ -13,11 +13,11 @@
 
     <script>
         function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-        console.log('User signed out.');
-        });
-    }
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
 
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
@@ -32,6 +32,10 @@
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+
+        fetch('/entry/'+profile.getEmail())
+            .then(response=> console.log(response));
+
       }
     </script>
   </body>
