@@ -1,12 +1,17 @@
 const express = require('express');
 const app = express();
-const path=require('path')
-const editProfileRoute=require('./profile-editor.js');
-const displayProfileRoute=require('./display-profile-page.js')
-const entryRoute=require('./entry.js');
+const path=require('path');
+const hbs=require('hbs');
 
+const editProfileRoute=require('./routes/profile-editor.js');
+const displayProfileRoute=require('./routes/display-profile-page.js')
+const entryRoute=require('./routes/entry.js');
 
-// app.use(express.static(__dirname+ '/public'))
+app.set('view engine','hbs');
+app.use(express.static(__dirname+ '/public'))
+
+hbs.registerPartials(path.join(__dirname,'/partials'))
+
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.json())
 
@@ -15,8 +20,7 @@ app.use(displayProfileRoute)
 app.use(entryRoute);
 
 app.get('/', (req, res) => {
-  //res.send('Hello from App Engine! Server started');
-  res.sendFile(path.join(__dirname +'/public/index.html'))
+    res.render('index')
 });
 
 
