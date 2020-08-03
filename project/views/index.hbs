@@ -1,24 +1,25 @@
-<html lang="en">
+<html lang="en" id='page'>
   <head>
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="710615308491-m9b5ijdlck0groun5s870iqkk82pf7mr.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <!-- <script src="authentication.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  
+    {{>navbar}}
+    
     User: 
         <input type="radio" name="user" value="doctor">doctor 
         <input type="radio" name="user" value="client">client  
-        <br>        
-        <button type="button" onclick="displayRadioValue()"> 
-            Submit 
-        </button>        
+        <br> 
+        <form action='/profile-page' method="POST">       
+            <input type="submit" value="Submit" onclick="displayRadioValue()"> 
+        </form>       
         <br>        
         <div id="result"></div>
         <br>
-    <a href="/" onclick="signOut();">Sign out</a>  
+     
     
 
     <script>
@@ -45,9 +46,6 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
-        // fetch('/entry/'+profile.getEmail())
-         //   .then(response=> console.log(response)); 
-
       }
 
       function displayRadioValue()
@@ -65,10 +63,10 @@
                         
                         //requesting server for entry page
 
-                        fetch('/entry/'+profile.getEmail())
-                        .then(
-                            response=> console.log(response)                        
-                        );
+                        //fetch('/entry/'+profile.getEmail())
+                        //.then(
+                        //    response=> console.log(response)                        
+                        //);
                     }
                 }
             }
