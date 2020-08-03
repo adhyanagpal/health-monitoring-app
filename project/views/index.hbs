@@ -8,12 +8,12 @@
   <body>
   
     {{>navbar}}
-    
-    User: 
-        <input type="radio" name="user" value="doctor">doctor 
-        <input type="radio" name="user" value="client">client  
-        <br> 
-        <form action='/profile-page' method="POST">       
+
+        <form action='/profile-page' method="POST">  
+        User: 
+            <label><input type="radio" name="user" value="doctor" required>doctor</label>
+            <label><input type="radio" name="user" value="client">client</label> 
+        <br>             
             <input type="submit" value="Submit" onclick="displayRadioValue()"> 
         </form>       
         <br>        
