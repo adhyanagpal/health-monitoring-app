@@ -8,17 +8,20 @@
   <body>
   
     {{>navbar}}
-
-        <form action='/profile-page' method="POST">  
+        
+        <form action='/profile-page' method="POST">
+        <div class="form-group"> 
         User: 
             <label><input type="radio" name="user" value="doctor" required>doctor</label>
             <label><input type="radio" name="user" value="client">client</label> 
         <br>             
-            <input type="submit" value="Submit" onclick="displayRadioValue()"> 
+            <input type="submit" value="Submit" onclick="displayRadioValue()">
+        </div>
         </form>       
         <br>        
         <div id="result"></div>
         <br>
+        
      
     
 
