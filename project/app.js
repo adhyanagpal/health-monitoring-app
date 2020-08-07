@@ -2,10 +2,29 @@ const express = require('express');
 const app = express();
 const path=require('path');
 const hbs=require('hbs');
+// var mysql = require('mysql');
+
+// var con = mysql.createConnection({
+//   host: "35.225.233.113",
+//   database : 'docClient',
+//   user: "user",
+//   password: "user@123456",
+//   port: 3306
+// });
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
+
 
 const editProfileRoute=require('./routes/profile-editor.js');
 const displayProfileRoute=require('./routes/display-profile-page.js')
 const entryRoute=require('./routes/entry.js');
+const displayReportsRoute=require('./routes/display-reports.js');
+const bookAppointmentsRoute=require('./routes/book-appointments.js');
+const viewCalendarRoute=require('./routes/view-calendar.js');
+
 
 app.set('view engine','hbs');
 app.use(express.static(__dirname+ '/public'))
@@ -15,8 +34,11 @@ hbs.registerPartials(path.join(__dirname,'/partials'))
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.json())
 
-app.use(editProfileRoute)
-app.use(displayProfileRoute)
+app.use(displayReportsRoute);
+app.use(bookAppointmentsRoute);
+app.use(viewCalendarRoute);
+app.use(editProfileRoute);
+app.use(displayProfileRoute);
 app.use(entryRoute);
 
 app.get('/', (req, res) => {
