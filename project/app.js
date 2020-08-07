@@ -18,6 +18,7 @@ const hbs=require('hbs');
 // });
 
 
+
 const editProfileRoute=require('./routes/profile-editor.js');
 const displayProfileRoute=require('./routes/display-profile-page.js')
 const entryRoute=require('./routes/entry.js');
@@ -51,3 +52,21 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });
+
+
+//database connection setup
+
+const Datastore = require('@google-cloud/datastore');
+const datastore = new Datastore({
+  projectId: 'summer20-sps-84',
+  keyFilename: 'key.json'
+});
+
+//const key = datastore.key(['patient', datastore.int('5632499082330112')]);
+
+// datastore.get(key, (err, entity) => {
+// console.log(entity.name);
+// });
+
+
+
