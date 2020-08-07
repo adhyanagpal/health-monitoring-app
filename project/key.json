@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "summer20-sps-84",
+  "private_key_id": "4e4fac7e57268f30753364c1c26f803f6d89cef6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDH2pKGOJ/wi8Xi\nCk6LsZDoLBf279fxA0rHLFEambXOqP1/eQTrXPk8O5CeNyb+mZyBInRa/2gHmWCY\n50Sh1Ptgn9IJwnfR30NCQyC2l1l2En2pOlpC3dvaE71S8JFm5Esyf0dK5/1eVP9G\nGuEftO6STKoowrjysRyAZUciyOPF8mSQuObZafC1x0IQLI+jENsqAYGUz0B3Di2+\n9TH2uzkWWs+KtHgZrvWuyq1JpsTVLsVcEqB5r/jOAX/eEwgNsyMTxzbFeEKJeEEB\nPgxC96QJ7bb0QB8zirFBwxuRnxPWlzPPK+AaqynOHM9IUKqlUCvmgWZVLRUxpCQH\nKUMtWnydAgMBAAECggEAA3PpAqUhTEJZ75sOetbdQkmau2Mu56TPKqw/FXbQ34pn\nYMeqOFfBnZMI31bkF1N3kvqRqI3PkgwKEXIzaxlXI3b3ZcBEmi1hh9hJjSYFv2a3\n4Y/Wxd934CdlprRtyqmIjA2LYYWrCLFuvJsTxxy033WwHeapU9YQAD7fsP/oAYAz\n83M//nmYbbCO9WqISkUnn5qDPrjoaj6+eSzsSwAwAhPSkykrxCxEcPOqyZbY6KI4\n+WpgFuy1kT6yVw3kLr/+0/hu/GleRvWkjXRsB0dSaNfXXizcMdWSw9zYeJGdR00U\nOE+yQ4ES5xx2U7R8ZvWrpvldUwxfRApDvuEXpq6usQKBgQD9Rp4ptj/RyNah/TZv\nfFPj1LC4qU23N2Zk3HL1U3v/gjXGVO5TrA5G+9RKkZDnvx2MhaNiHGJXJX7QVQH8\nJEaEBkqeLMyWBfDa4IJ6hfEVNsgNUd5TlQNSjBq4AQpu9quDo7FITvARxbKZaOkn\nSKLZZmz0+hZcSpzZDBZho46ZkQKBgQDKANwQzKlhKhpAGdwFZz7FTp1o8c1cclJw\njhWaitUux3NmtJ2+YUw1dfKoTKh9KxCTalZCMmPY8x6spwdiP93hBk4zAAfSpnqt\nnATFwJBhAKY1XAOKr1567gtYOQE0sUN3VLRJoipa+QOh2nj0eua52eTIFZNYNWvX\nlNt64kuMTQKBgAW2P/7k00+h3eVNVprxDNtIgqvHda86Gp8PsbACr/s1Lo1IgQ92\nA+Rp7YG5ArGXR81RfjvKNBWPDOsZ36+WCdkUYz5p+Dsx6xqkkYy91JAL6jsSq5bq\n92Y3LqsTqu6RtZCEco0U6qkb8kkvaoKuSq3od3CW60YtkJf8g8yz6ZVhAoGBAKmB\nwyjNtKx2OgTkLj7SflfvOiOgFGWpAQi2EebW7UEN2QasNVpWJy8NRIx5l0FBa+1n\n4+40fpjEmk7i8k09rqBvPBuLwQTA8lzQeSjAB+d+Nfq8tbQgqLWbHyXu39YpkaWH\nDKplTAl+v8+HlswAfbAi6doEUNpKKa6DmREq555ZAoGADpqHMSNeItlPotBpx0Ml\nOeMMYovTQihPsjuDMl3wJlan3Ms+Yktu4x/B8z5oW/exjdlpa+OdON3HugM+m6LZ\nkkAVLhsT0z/69yPAw0INiBehTRhsAO0MgbTL6/LkOYISIKexzUVpv8S0IZKJogz4\nJeMyXXMOL6uA31sC8OQUkUE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "summer20-sps-84@appspot.gserviceaccount.com",
+  "client_id": "100974095702528886854",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/summer20-sps-84%40appspot.gserviceaccount.com"
+}
