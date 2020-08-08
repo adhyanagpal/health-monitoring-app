@@ -2,22 +2,6 @@ const express = require('express');
 const app = express();
 const path=require('path');
 const hbs=require('hbs');
-// var mysql = require('mysql');
-
-// var con = mysql.createConnection({
-//   host: "35.225.233.113",
-//   database : 'docClient',
-//   user: "user",
-//   password: "user@123456",
-//   port: 3306
-// });
-
-// con.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected!");
-// });
-
-
 
 const editProfileRoute=require('./routes/profile-editor.js');
 const displayProfileRoute=require('./routes/display-profile-page.js')
@@ -56,17 +40,6 @@ app.listen(PORT, () => {
 
 //database connection setup
 
-const Datastore = require('@google-cloud/datastore');
-const datastore = new Datastore({
-  projectId: 'summer20-sps-84',
-  keyFilename: 'key.json'
-});
-
-//const key = datastore.key(['patient', datastore.int('5632499082330112')]);
-
-// datastore.get(key, (err, entity) => {
-// console.log(entity.name);
-// });
 
 
 
