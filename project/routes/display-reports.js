@@ -1,14 +1,14 @@
 const route=require('express').Router();
 const fs = require("fs");
 const multer = require("multer");
-const path = require("path");
+const path=require('path');
 
 route.get('/test-reports',(req,res)=>{
     ///fetch reports from db
     res.render('reports');
 })
 
-const uploadDir = "../uploads";
+const uploadDir = "./uploads";
 
 // @creates the upload destination [folder] if it doesn't exist at server boot.
 if (!fs.existsSync(uploadDir)) {
@@ -20,10 +20,12 @@ var storage = multer.diskStorage({
     callback(null, uploadDir);
   },
   filename: function(req, file, callback) {
-    //callback(null, Date.now() + path.extname(file.originalname));
-    callback(null, Date.now()+"_"+file.report);
+    callback(null, file.originalname );
   }
 });
+
+//Date.now() + "_" + 
+//+ path.extname(file.originalname)
 
 var upload = multer({ storage: storage });
 
