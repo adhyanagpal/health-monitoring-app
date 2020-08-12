@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path=require('path');
 const hbs=require('hbs');
+const Datastore = require('@google-cloud/datastore');
 
 const editProfileRoute=require('./routes/profile-editor.js');
 const displayProfileRoute=require('./routes/display-profile-page.js')
@@ -10,6 +11,10 @@ const displayReportsRoute=require('./routes/display-reports.js');
 const bookAppointmentsRoute=require('./routes/book-appointments.js');
 const viewCalendarRoute=require('./routes/view-calendar.js');
 
+// app.use('/edit-profile',(req,res)=>{
+//     console.log(req)
+//     res.render('profile-editor')
+// });
 
 app.set('view engine','hbs');
 app.use(express.static(__dirname+ '/public'))
@@ -39,6 +44,7 @@ app.listen(PORT, () => {
 
 
 //database connection setup
+
 
 
 

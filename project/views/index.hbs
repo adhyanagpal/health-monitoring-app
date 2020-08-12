@@ -14,7 +14,9 @@
     {{>navbar}}
         
         <form action='/profile-page' method="POST">
-            <div class="form-group"> 
+            <div class="form-group">
+                <label for="emailid">Email_id: </label>
+                <input type="text" id="emailid" name="emailid" value="abc@gmail.com"><br> 
                 Select User Type: 
 
                 <div class="form-check form-check-inline">
@@ -58,11 +60,12 @@
         console.log('Family Name: ' + profile.getFamilyName());
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
-
+        
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
+        document.getElementById('emailid').value=profile.getEmail();
       }
 
       function displayRadioValue()
@@ -84,6 +87,17 @@
                         //.then(
                         //    response=> console.log(response)                        
                         //);
+
+                        {{!-- let response = await fetch('/profile-page', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                        body: JSON.stringify(googleUser)
+                        });
+                        let result = await response.json();
+                        alert(result.message); --}}
+
                     }
                 }
             }
