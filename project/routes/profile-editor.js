@@ -2,9 +2,10 @@ const route=require('express').Router();
 const path=require('path')
 
 route.post('/edit-profile',(req,res)=>{
- console.log(req)
+//  console.log(req)
     let user={
         name: req.body.name,
+        email: req.body.email,
         dob: req.body.dob,
         contact: req.body.contact,
         bloodgrp: req.body.bloodgrp,

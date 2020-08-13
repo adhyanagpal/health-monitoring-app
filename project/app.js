@@ -5,6 +5,7 @@ const hbs=require('hbs');
 const Datastore = require('@google-cloud/datastore');
 
 const editProfileRoute=require('./routes/profile-editor.js');
+const saveProfileRoute=require('./routes/save-profile.js');
 const displayProfileRoute=require('./routes/display-profile-page.js')
 const entryRoute=require('./routes/entry.js');
 const displayReportsRoute=require('./routes/display-reports.js');
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(express.json())
 
 app.use(displayReportsRoute);
+app.use(saveProfileRoute);
 app.use(bookAppointmentsRoute);
 app.use(viewCalendarRoute);
 app.use(editProfileRoute);

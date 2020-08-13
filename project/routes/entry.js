@@ -26,6 +26,7 @@ route.post('/profile-page',(req,res)=>{
                // res.redirect('/profile-page/'+usertype);
                let user={
                     name: entities[0].name,
+                    email: entities[0].email,
                     dob:entities[0].dob,
                     contact:entities[0].contact,
                     bloodgrp:entities[0].bloodgroup,
@@ -39,8 +40,11 @@ route.post('/profile-page',(req,res)=>{
             else
             {
                 console.log("new client");
+                let user={
+                    email: EMAIL
+                }
                // res.redirect('/edit-profile');
-               res.render('profile-editor');
+               res.render('profile-editor',{user});
             }
         });
     }
