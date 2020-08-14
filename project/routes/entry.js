@@ -29,7 +29,7 @@ route.post('/profile-page',(req,res)=>{
                     email: entities[0].email,
                     dob:entities[0].dob,
                     contact:entities[0].contact,
-                    bloodgrp:entities[0].bloodgroup,
+                    bloodgrp:entities[0].bloodgrp,
                     address: entities[0].address,
                     weight: entities[0].weight,
                     height: entities[0].height 
