@@ -11,9 +11,10 @@ route.post('/profile-page',(req,res)=>{
     const usertype=req.body.user;
     const EMAIL=req.body.emailid;
     console.log(EMAIL)
+    console.log("User Type is: "+usertype);
     if(usertype=='client')
     {
-        console.log("User Type is: "+usertype);
+        console.log("Welcome Client");
 
         const query = datastore.createQuery('Patient').filter('email',EMAIL);    
             query.run((err,entities,info)=>{
@@ -48,7 +49,45 @@ route.post('/profile-page',(req,res)=>{
             }
         });
     }
+    else
+    {
+        console.log("Welcome Doctor");
+        const query = datastore.createQuery('Doctor').filter('email',EMAIL);
 
+        query.run((err,entities,info)=>{
+        
+            console.log(entities.length)
+
+            if(entities.length==1)
+            {
+                console.log("doctor exists");
+               //res.redirect('/profile-page/'+usertype);
+               let user={
+                    name: entities[0].name,
+                    email: entities[0].email,
+                    contact:entities[0].contact,
+                    address: entities[0].address,
+                    time: entities[0].time,
+                    degree: entities[0].degree,
+                    facility: entities[0].facility,
+                    fee: entities[0].fee,
+                    specialisation: entities[0].specialisation
+                }
+                res.render('doctor-dashboard',{user});
+            }
+            else
+            {
+                console.log("new doctor");
+                let user={
+                    email: EMAIL
+                }
+               // res.redirect('/edit-profile');
+               res.render('doc-profile-editor',{user});
+            }
+        });
+
+
+    }
           
         
     

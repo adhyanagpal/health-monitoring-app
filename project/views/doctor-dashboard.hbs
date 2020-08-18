@@ -7,8 +7,81 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </head>
+
+    <style>
+    #user-options{
+            width: 30%;
+            margin-left:10%;
+            justify-content:right;
+            align-items: center;
+            text-align: center;
+        }
+
+        #user-details{
+            width:50%;
+            justify-content: left;
+        }
+
+        #user-dashboard{
+            margin-right:5%;
+            display: flex;
+            flex-wrap:wrap;
+            padding: 5%;
+        }
+    </style>
+
     <body>
         {{>navbar}}
         <h2>Hello Doctor</h2>
+
+        <div id='user-dashboard'>          
+            
+            <form id='user-details' action='/doc-edit-profile' method="POST">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter Full Name" value="{{user.name}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Email</label>
+                    <input type="text" class="form-control" name="email" placeholder="Enter email" value="{{user.email}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Contact</label>
+                    <input type="tel" class="form-control" name="contact" placeholder="Enter Mobile Number" value="{{user.contact}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Address</label>
+                    <input type="text" class="form-control" name="address" placeholder="Hospital Address" value="{{user.address}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Hospital timings</label>
+                    <input type="text" class="form-control" name="time" placeholder="Hospital timings" value="{{user.time}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Specialisation</label>
+                    <input type="text" class="form-control" name="specialisation" placeholder="specialisation" value="{{user.specialisation}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Qualification</label>
+                    <input type="text" class="form-control" name="degree" placeholder="Qualification" value="{{user.degree}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Facilties provided</label>
+                    <input type="text" class="form-control" name="facility" placeholder="facility" value="{{user.facility}}" readonly>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Consultation Fees</label>
+                    <input type="text" class="form-control" name="fee" placeholder="Fee" value="{{user.fee}}" readonly>
+                    
+                </div>            
+            <input id='user-options' type="submit" value="Edit Profile">
+            </form>
+            <div id='user-options' class='list-group'>
+                    <a href='#' class='op list-group-item list-group-item-action'>Schedule Appointment</a>
+                    <a href='#' class='op list-group-item list-group-item-action'>View My Calendar</a>
+            </div>
+        </div>
+
     </body>
 </html
