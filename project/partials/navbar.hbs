@@ -1,8 +1,9 @@
+{{!-- 710615308491-m9b5ijdlck0groun5s870iqkk82pf7mr.apps.googleusercontent.com --}}
 <html>
 
     <head>
         <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="710615308491-m9b5ijdlck0groun5s870iqkk82pf7mr.apps.googleusercontent.com">
+        <meta name="google-signin-client_id" content="710615308491-2mm3utript0cuja28lg7fgvi7hpde6sl.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
@@ -49,6 +50,10 @@
             var id_token = googleUser.getAuthResponse().id_token;
             console.log("ID Token: " + id_token);
 
+            const signin=document.getElementById('signin-tab');
+            const signout=document.getElementById('signout-tab');
+            signin.style.display="none";
+            signout.style.display="block";
         }
 
         function signOut() {
@@ -56,6 +61,10 @@
             auth2.signOut().then(function () {
                 console.log('User signed out.');
             });
+            const signin=document.getElementById('signin-tab');
+            const signout=document.getElementById('signout-tab');
+            signin.style.display="block";
+            signout.style.display="none";
         }
 
     </script>
