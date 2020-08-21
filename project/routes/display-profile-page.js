@@ -4,7 +4,7 @@ const path=require('path')
 route.get('/profile-page/client',(req,res)=>{
     //pass user object to dynamically render the profile details of
     // relevant user as html
-
+   console.log(req)
     let user={
         name: "Simran Kaur",
         dob:"25-05-1998",

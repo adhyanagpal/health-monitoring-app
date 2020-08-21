@@ -1,16 +1,17 @@
 const route=require('express').Router();
 const path=require('path')
 
-route.get('/edit-profile',(req,res)=>{
-
+route.post('/edit-profile',(req,res)=>{
+//  console.log(req)
     let user={
-        name: "Simran Kaur",
-        dob:"25-05-1998",
-        contact:"9988324510",
-        bloodgrp:"B+",
-        address: "Abc Road",
-        weight: "55",
-        height: "160" 
+        name: req.body.name,
+        email: req.body.email,
+        dob: req.body.dob,
+        contact: req.body.contact,
+        bloodgrp: req.body.bloodgrp,
+        address: req.body.address,
+        weight: req.body.weight,
+        height: req.body.height 
     }
 
     res.render('profile-editor',{user})

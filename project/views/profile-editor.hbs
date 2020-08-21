@@ -27,14 +27,18 @@
         <h2 class="text-center"> My Profile</h2>
         <div id='profile-edit'>
             
-            <form id='profile-form'>
+            <form action='/save-profile' id='profile-form' method="POST">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter Full Name" value="{{user.name}}">
+                    <input type="text" class="form-control" name="name" placeholder="Enter Full Name" value="{{user.name}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Email</label>
+                    <input type="text" class="form-control" name="email" value="{{user.email}}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Contact</label>
-                    <input type="tel" class="form-control" name="contact" placeholder="Enter Mobile Number" value="{{user.contact}}">
+                    <input type="tel" pattern="[0-9]{10}" class="form-control" name="contact" placeholder="Enter Mobile Number" value="{{user.contact}}">
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Address</label>
@@ -42,20 +46,20 @@
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">DOB</label>
-                    <input type="date" class="form-control" name="dob" placeholder="Date of birth" value="{{user.dob}}">
+                    <input type="date" class="form-control" name="dob" placeholder="Date of birth" value="{{user.dob}}" required>
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Blood Group</label>
-                    <input type="text" class="form-control" name="bloodgrp" placeholder="Blood group" value="{{user.bloodgrp}}">
+                    <input type="text" pattern="^(A|B|AB|O)[+-]?$" class="form-control" name="bloodgrp" placeholder="Blood group" value="{{user.bloodgrp}}" required>
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Height</label>
-                    <input type="text" class="form-control" name="height" placeholder="Height" value="{{user.height}}">
-                    (in cms)
+                    <input type="number" min="0.5" step="0.01" class="form-control" name="height" placeholder="Height" value="{{user.height}}">
+                    (in feet)
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Weight</label>
-                    <input type="text" class="form-control" name="weight" placeholder="Weight" value="{{user.weight}}">
+                    <input type="number" min="1" step="0.01" class="form-control" name="weight" placeholder="Weight" value="{{user.weight}}">
                     (in kgs)
                 </div>
                 <br>
