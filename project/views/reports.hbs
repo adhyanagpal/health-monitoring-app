@@ -10,10 +10,31 @@
   
   </head>
 
+  <style>
+    .upload-div{
+        position: sticky;
+        bottom: 0;
+    }
+  </style>
+
   <body>
     {{>navbar}}
 
-    <h2> User's Reports will be displayed here! </h2>
+    <h2> My Reports </h2>
+    <div class='upload-div'>
+
+        <div>
+            {{#each reports}}
+                <a href="{{geturl}}"> {{fname}} </a>
+                <br>
+            {{/each}}
+        </div>
+
+        <form action="/upload-report/{{email}}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="report" /> 
+            <input type="submit" value="Add Report" class="btn btn-secondary">
+        </form>
+    </div>
 
   </body>
 
