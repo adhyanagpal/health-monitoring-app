@@ -76,9 +76,24 @@
             <input id='user-options' type="submit" value="Edit Profile">
             </form>
             <div id='user-options' class='list-group'>
+                <form action='/book-appointment' method="POST">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" name="email" placeholder="Enter email" value="{{user.email}}">
+                    </div>
+                    <label for="formGroupExampleInput2">Specialisation</label>
+                    <select class="form-control" name="specialisation" placeholder="specialisation" required>
+                    <option value="ENT">ENT</option>
+                    <option value="Pediatrition">Pediatrition</option>
+                    <option value="Gynecologist">Gynecologist</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="EyeSpecialist">EyeSpecialist</option>
+                    </select>
+                    <input type="submit" value="SearchDoctor">
+                </form>
                     {{!-- <a href='/edit-profile' class='op list-group-item list-group-item-action'>Edit Profile</a> --}}
-                    <a href='/book-appointment' class='op list-group-item list-group-item-action'>Book an Appointment</a>
-                    <a href='/view-calendar' class='op list-group-item list-group-item-action'>View My Calendar</a>
+                    {{!-- <a href='/book-appointment' class='op list-group-item list-group-item-action'>Book an Appointment</a> --}}
+                    {{!-- <a href='/view-calendar' class='op list-group-item list-group-item-action'>View My Calendar</a> --}}
                     <a href='/test-reports' class='op list-group-item list-group-item-action'>View Test Reports</a>
             </div>
         </div>        
