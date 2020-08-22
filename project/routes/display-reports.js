@@ -18,7 +18,13 @@ route.get('/test-reports/:email',(req,res)=>{
 })
 
 route.get('/display-report/:email/:filename',(req,res)=>{
-    res.sendFile("/home/anagpal/health-monitoring-app/project/uploads/"+req.params.email+"/"+req.params.filename);
+    const dirPath=__dirname;
+    dirPath.toString();
+    //console.log(dirPath);
+    const len=dirPath.length;
+    //console.log(len);
+    let newpath=dirPath.substr(0,len-6);
+    res.sendFile(path.join(newpath,"/uploads/"+req.params.email+"/"+req.params.filename));
 })
 
 var storage = multer.diskStorage({
