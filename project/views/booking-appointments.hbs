@@ -10,10 +10,30 @@
   
   </head>
     <body>
-        {{>navbar}}
-
-        <h2>A dropdown menu will be provided here</h2>
-
+        {{>navbar}}        
+        <h2>Display doclist</h2>
+        <div>
+        {{#each list.doclist}}
+            <div>
+                <li>{{name}}</li>
+                <li>{{email}}</li>
+            </div>
+        {{/each}}
+        </div>
+        <form action='/calendar' method="POST">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Client email</label>
+            <input type="text" class="form-control" name="Cemail" value="abc@gmail.com" readonly>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Doctor email</label>
+            <input type="text" class="form-control" name="Demail" value="xyz@sps-program.com" readonly>
+        </div>
+        <input type="submit" value="BookAppointment" class="btn btn-secondary">
+        </form>       
     </body>
-
+    {{!-- <script>
+    console.log("received")
+    console.log({{#each doclist}})
+    </script> --}}
 </html
