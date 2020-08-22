@@ -6,7 +6,19 @@ const mkdirp=require('mkdirp')
 
 route.get('/test-reports/:email',(req,res)=>{
     ///fetch reports from db
-    res.render('reports',{email: req.params.email});
+    
+    fs.promises.readdir('./uploads/'+req.params.email)
+        .then(filenames=>{
+            let reports=filenames.map(fname=>{
+                return {fname, geturl: "/display-report/"+req.params.email+"/"+fname};
+            })
+            res.render('reports',{email: req.params.email, reports});
+        })
+    
+})
+
+route.get('/display-report/:email/:filename',(req,res)=>{
+    res.sendFile("/home/anagpal/health-monitoring-app/project/uploads/"+req.params.email+"/"+req.params.filename);
 })
 
 var storage = multer.diskStorage({
