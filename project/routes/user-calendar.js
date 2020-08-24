@@ -8,27 +8,42 @@ route.post('/calendar',(req,res)=>{
 
     console.log("Appointment created by: "+req.body.cemail+" for "+req.body.demail);
 
-    //const query=datastore.createQuery('Appointments').filter('doc_email',req.body.demail)
+    const query=datastore.createQuery('Appointments').filter('doc_email',req.body.demail)
     //                       .order('end_time',{descending: true,});
-    // query.run((err,entities,info)=>{
+     query.run((err,entities,info)=>{
         
-    //     console.log(entities.length)
+         console.log("Number of rows that we're getting: "+ entities.length)
 
-    //         if(entities.length==0) // this doctor doesn't have any appts in the past
-    //         //so fetch his availability slot from db and assign the 1st available slot
-    //         {
-    //             const query2=datastore.createQuery('Doctor').filter('email', req.body.demail);
-    //             query2.run((err2,docs,info2)=>{
-    //                 console.log(docs[0].time);
-    //             })
-    //         }
-    //         else //doctor has some appointmemts already so his last appointment is in entities[0] due to order descending, 
-    //         //assign the next time slot on the same date or if end_time==doctor's end of availabilty time, then assign for next date
-    //         {
+            if(entities.length==0) // this doctor doesn't have any appts in the past
+            //so fetch his availability slot from db and assign the 1st available slot
+            {
+                const query2=datastore.createQuery('Doctor').filter('email', req.body.demail);
+                query2.run((err2,docs,info2)=>{
+                    //console.log(docs[0].time);
+                    // let appt={
+                    //     doc_email: req.body.demail,
+                    //     client_email: req.body.cemail,
 
-    //         }
+                    // }
+                    // const key = datastore.key(['Appointments']);
+                    //     console.log(EMAIL)
+                    //     datastore.save({
+                    //         key: key,
+                    //         data: appt;
+                    //     }, function(err) {
+                    //         if (!err) {
+                    //             console.log("Record saved successfully.")
+                    //         }
+                    //     });
+                })
+            }
+            else //doctor has some appointmemts already so his last appointment is in entities[0] due to order descending, 
+            //assign the next time slot on the same date or if end_time==doctor's end of availabilty time, then assign for next date
+            {
+
+            }
             
-    // });
+     });
 
     //calendar connection setup
 
