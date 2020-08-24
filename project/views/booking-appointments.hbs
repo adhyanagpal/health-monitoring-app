@@ -11,7 +11,7 @@
   </head>
     <body>
         {{>navbar}}        
-        <h2>Display doclist</h2>
+        <h2>Search Results and Appointment Status</h2>
         
         <ul>
         {{#each doclist}}
@@ -20,12 +20,12 @@
                 <form action="/calendar" method="POST">
                     <input type="hidden" name="cemail" value="{{../clientEmail}}">
                     <input type="hidden" name="demail" value="{{email}}">
-                    <input type="submit" value="Book Appointment" class="btn btn-secondary">   
+                    <input type="submit" value="Book Appointment" class="btn btn-secondary"> 
                 </form>
             </div>
         {{/each}}
         <ul>
-        
+        <input type="text" placeholder="Booking Status" value="{{text.msg}}" > 
     </body>
     
 </html

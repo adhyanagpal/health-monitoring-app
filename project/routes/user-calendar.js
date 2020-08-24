@@ -6,31 +6,31 @@ const datastore=require('../db.js')
 
 route.post('/calendar',(req,res)=>{
 
-    console.log("Appointment created by: "+req.body.cemail+" for "+req.body.demail);
+    
 
-    const query=datastore.createQuery('Appointments').filter('doc_email',req.body.demail)
-                            .order('end_time',{descending: true,});
-    query.run((err,entities,info)=>{
+    // const query=datastore.createQuery('Appointments').filter('doc_email',req.body.demail)
+    //                         .order('end_time',{descending: true,});
+    // query.run((err,entities,info)=>{
         
-        console.log(entities.length)
+    //     console.log(entities.length)
 
-            if(entities.length==0) // this doctor doesn't have any appts in the past
-            //so fetch his availability slot from db and assign the 1st available slot
-            {
-                const query2=datastore.createQuery('Doctor').filter('email', req.body.demail);
-                query2.run((err2,docs,info2)=>{
-                    console.log(docs[0].time);
-                })
-            }
-            else //doctor has some appointmemts already so his last appointment is in entities[0] due to order descending, 
-            //assign the next time slot on the same date or if end_time==doctor's end of availabilty time, then assign for next date
-            {
+    //         if(entities.length==0) // this doctor doesn't have any appts in the past
+    //         //so fetch his availability slot from db and assign the 1st available slot
+    //         {
+    //             const query2=datastore.createQuery('Doctor').filter('email', req.body.demail);
+    //             query2.run((err2,docs,info2)=>{
+    //                 console.log(docs[0].time);
+    //             })
+    //         }
+    //         else //doctor has some appointmemts already so his last appointment is in entities[0] due to order descending, 
+    //         //assign the next time slot on the same date or if end_time==doctor's end of availabilty time, then assign for next date
+    //         {
 
-            }
+    //         }
             
-    });
+    // });
 
-    //calendar connection setup
+    // calendar connection setup
 
 
 // If modifying these scopes, delete token.json.
@@ -96,7 +96,18 @@ function getAccessToken(oAuth2Client, callback) {
     });
   });
 }
+// var today = new Date();
+// var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+// var time = (today.getHours()<10)?("0"+today.getHours()) + ":" + today.getMinutes() + ":" + today.getSeconds();
 
+// var dateTime = date+'T'+time;
+
+// var datetime = require('node-datetime');
+// var dt = dateTime.create();
+// dt.format('Y-m-d H:M:S');
+// console.log(new Date(dt.now()));
+
+//console.log(today)
 // Refer to the Node.js quickstart on how to setup the environment:
 // https://developers.google.com/calendar/quickstart/node
 // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
@@ -110,16 +121,16 @@ var event = {
     'sendNotifications': true
   },
   'start': {
-    'dateTime': '2020-08-23T09:00:00',
+    'dateTime': '2020-08-24T17:00:00',
     'timeZone': 'Asia/Calcutta',
   },
   'end': {
-    'dateTime': '2020-08-23T09:15:00',
+    'dateTime': '2020-08-24T17:15:00',
     'timeZone': 'Asia/Calcutta',
   },
   'attendees': [
-    {'email': req.body.Cemail},
-    {'email': req.body.Demail},
+    {'email': req.body.cemail},
+    {'email': req.body.demail},
   ],
   'reminders': {
     'useDefault': false,
@@ -140,10 +151,14 @@ var event = {
                 return;
             }
             console.log('Event created');
+            console.log("Appointment created by: "+req.body.cemail+" for "+req.body.demail);
         });
     }
-//res.render('booking-appointments');
-    res.redirect('/')
+let text={
+      msg: "Booked Successfully :)"
+  }
+res.render('booking-appointments',{text});
+   //res.redirect('/')
 });
 
 module.exports=route
