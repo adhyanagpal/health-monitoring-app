@@ -11,18 +11,20 @@ route.post('/book-appointment',(req,res)=>{
         
         for(var i=0;i<entities.length;i++)
         {
-            console.log(entities[i]);
+            //console.log(entities[i]);
             const doc={
                 name: entities[i].name,
-                email: entities[i].email
+                email: entities[i].email,
+                //clientEmail:req.body.email
             }
             doclist.push(doc);
         }
-        console.log(doclist)
+        //console.log(doclist)
         var list={
-        email:req.body.email,
-        doclist: doclist
-    }
+            clientEmail:req.body.email,
+            doclist: doclist
+        }
+        //console.log("sending this as clientEmail: "+req.body.email)
         res.render('booking-appointments',list)
     });
 
