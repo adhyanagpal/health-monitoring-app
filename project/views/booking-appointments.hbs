@@ -11,8 +11,8 @@
   </head>
     <body>
         {{>navbar}}        
-        <h2>Search Results and Appointment Status</h2>
-        
+        <h2 style="color:blue; font-style:italic;" >Found your Well-wisher!</h2>
+        <br>
         <ul>
         {{#each doclist}}
             <div>
@@ -25,6 +25,7 @@
             </div>
         {{/each}}
         <ul>
+        <p style="font-size:20px; color:blue; font-style:italic;">Schedule a virtual meet...</p>
         <input type="text" placeholder="Booking Status" value="{{text.msg}}" > 
     </body>
     

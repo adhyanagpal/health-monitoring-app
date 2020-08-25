@@ -4,6 +4,14 @@ const multer = require("multer");
 const path=require('path');
 const mkdirp=require('mkdirp')
 
+fs.chmod('./uploads',0o777,(err) => {
+	if (err) {
+		console.error(err)
+	}
+
+	console.log('Permissions changed successfully');
+})
+
 route.get('/test-reports/:email',(req,res)=>{
     ///fetch reports from db
 

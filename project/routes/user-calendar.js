@@ -9,8 +9,10 @@ route.post('/calendar',(req,res)=>{
     
 
 
+
     //const query=datastore.createQuery('Appointments').filter('doc_email',req.body.demail)
     //                       .order('end_time',{descending: true,});
+
     // query.run((err,entities,info)=>{
         
     //     console.log(entities.length)
@@ -62,7 +64,12 @@ function authorize(credentials, callback) {
 
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, (err, token) => {
-    if (err) return getAccessToken(oAuth2Client, callback);
+    if (err) 
+    {
+        console.log("Token file not found ");
+        return getAccessToken(oAuth2Client, callback);
+    }
+    //console.log("token found");
     oAuth2Client.setCredentials(JSON.parse(token));
     callback(oAuth2Client);
   });
@@ -89,6 +96,7 @@ function getAccessToken(oAuth2Client, callback) {
     oAuth2Client.getToken(code, (err, token) => {
       if (err) return console.error('Error retrieving access token', err);
       oAuth2Client.setCredentials(token);
+      console.log(token);
       // Store the token to disk for later program executions
       fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
         if (err) return console.error(err);
@@ -98,16 +106,6 @@ function getAccessToken(oAuth2Client, callback) {
     });
   });
 }
-// var today = new Date();
-// var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-// var time = (today.getHours()<10)?("0"+today.getHours()) + ":" + today.getMinutes() + ":" + today.getSeconds();
-
-// var dateTime = date+'T'+time;
-
-// var datetime = require('node-datetime');
-// var dt = dateTime.create();
-// dt.format('Y-m-d H:M:S');
-// console.log(new Date(dt.now()));
 
 //console.log(today)
 // Refer to the Node.js quickstart on how to setup the environment:
@@ -117,17 +115,17 @@ function getAccessToken(oAuth2Client, callback) {
 function listEvents(auth) {
   const calendar = google.calendar({version: 'v3', auth});
 var event = {
-  'summary': 'Appointment',
+  'summary': 'Checkup Appointment',
   'description': 'Online consulting',
   'params': {
     'sendNotifications': true
   },
   'start': {
-    'dateTime': '2020-08-24T17:00:00',
+    'dateTime': '2020-09-01T17:15:00',
     'timeZone': 'Asia/Calcutta',
   },
   'end': {
-    'dateTime': '2020-08-24T17:15:00',
+    'dateTime': '2020-09-01T17:30:00',
     'timeZone': 'Asia/Calcutta',
   },
   'attendees': [
@@ -157,7 +155,7 @@ var event = {
         });
     }
 let text={
-      msg: "Booked Successfully :)"
+      msg: "Checkup Appointment scheduled Successfully on 1st September, 5:15 pm :)"
   }
 res.render('booking-appointments',{text});
    //res.redirect('/')

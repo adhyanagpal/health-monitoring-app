@@ -20,16 +20,16 @@
   <body>
     {{>navbar}}
 
-    <h2> My Reports </h2>
+    <h2 style="color:blue; font-style:italic;">Let your <b>Reports</b> reflect Your <b>Health</b> :)</h2>
     <div class='upload-div'>
-
+        <br>
         <div>
             {{#each reports}}
                 <a href="{{geturl}}"> {{fname}} </a>
                 <br>
             {{/each}}
         </div>
-
+        <br>
         <form action="/upload-report/{{email}}" method="POST" enctype="multipart/form-data">
             <input type="file" name="report" /> 
             <input type="submit" value="Add Report" class="btn btn-secondary">
