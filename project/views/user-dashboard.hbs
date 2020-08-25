@@ -35,7 +35,7 @@
 
         {{>navbar}}
 
-        <h2 class="text-center"> My Dashboard</h2>
+        <h2 class="text-center" style="color:blue;font-style:italic;" >Greetings Of the day {{user.name}} !</h2>
         <div id='user-dashboard'>          
             
             <form id='user-details' action='/edit-profile' method="POST">
@@ -73,29 +73,32 @@
                     <input type="text" class="form-control" name="weight" placeholder="Weight" value="{{user.weight}}" readonly>
                     (in kgs)
                 </div>            
-            <input id='user-options' type="submit" value="Edit Profile">
+            <input class='op list-group-item list-group-item-action' id='user-options' type="submit" value="Edit Profile">
             </form>
             <div id='user-options' class='list-group'>
+                <a href='/test-reports/{{user.email}}' class='op list-group-item list-group-item-action'>View Test Reports</a>
                 <form action='/book-appointment' method="POST">
                     <div class="form-group">
                         <input type="hidden" class="form-control" name="email" placeholder="Enter email" value="{{user.email}}">
                     </div>
-                    <label for="formGroupExampleInput2">Specialisation</label>
+                    
+                    
+                    <label for="formGroupExampleInput2">Specialisation:</label>
                     <select class="form-control" name="specialisation" placeholder="specialisation" required>
                     <option value="ENT">ENT</option>
+                    <option value="EyeSpecialist">Dentist</option>
                     <option value="Pediatrition">Pediatrition</option>
                     <option value="Gynecologist">Gynecologist</option>
-                    <option value="Cardiologist">Cardiologist</option>
-                    <option value="Dermatologist">Dermatologist</option>
-                    <option value="EyeSpecialist">EyeSpecialist</option>
+                    <option value="EyeSpecialist">EyeSpecialist</option>                    
                     </select>
-                    <input type="submit" value="SearchDoctor">
+                    <br>
+                    <input class='op list-group-item list-group-item-action' type="submit" value="Search Doctor">
                 </form>
                     {{!-- <a href='/edit-profile' class='op list-group-item list-group-item-action'>Edit Profile</a> --}}
 
                     {{!-- <a href='/book-appointment' class='op list-group-item list-group-item-action'>Book an Appointment</a> --}}
                     {{!-- <a href='/view-calendar' class='op list-group-item list-group-item-action'>View My Calendar</a> --}}
-                    <a href='/test-reports/{{user.email}}' class='op list-group-item list-group-item-action'>View Test Reports</a>
+                    
 
             </div>
         </div>        

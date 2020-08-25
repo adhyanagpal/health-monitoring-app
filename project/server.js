@@ -42,6 +42,13 @@ app.get('/', (req, res) => {
     res.render('index')
 });
 
+app.get('/about',(req,res)=>{
+    res.render('about');
+})
+
+app.get('/contact',(req,res)=>{
+    res.render('contact');
+})
 
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;
