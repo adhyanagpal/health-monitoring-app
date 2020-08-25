@@ -7,9 +7,12 @@ const datastore=require('../db.js')
 route.post('/calendar',(req,res)=>{
 
     
-//,"expiry_date":1598295494209
-    // const query=datastore.createQuery('Appointments').filter('doc_email',req.body.demail)
-    //                         .order('end_time',{descending: true,});
+
+
+
+    //const query=datastore.createQuery('Appointments').filter('doc_email',req.body.demail)
+    //                       .order('end_time',{descending: true,});
+
     // query.run((err,entities,info)=>{
         
     //     console.log(entities.length)
@@ -25,6 +28,7 @@ route.post('/calendar',(req,res)=>{
     //         else //doctor has some appointmemts already so his last appointment is in entities[0] due to order descending, 
     //         //assign the next time slot on the same date or if end_time==doctor's end of availabilty time, then assign for next date
     //         {
+
 
     //         }
             
